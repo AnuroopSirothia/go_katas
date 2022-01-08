@@ -1,1 +1,2 @@
-# go_katas
+# Go Katas
+Go practice code.
