@@ -11,21 +11,22 @@ pool:
 
 steps: 
 - task: GoTool@0
+  displayName: Install Go
   inputs:
     version: '1.18.2'
 - task: Go@0
-  displayName: Getting dependencies
+  displayName: Get dependencies
   inputs:
     command: 'get'
     arguments: '-d'
     workingDirectory: '$(System.DefaultWorkingDirectory)'
 - task: Go@0
-  displayName: Building the application
+  displayName: Build the App
   inputs:
     command: 'build'
     workingDirectory: '$(System.DefaultWorkingDirectory)'
 - task: CopyFiles@2
-  displayName: Copying files to staging directory
+  displayName: Copy to Staging Dir
   inputs:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
